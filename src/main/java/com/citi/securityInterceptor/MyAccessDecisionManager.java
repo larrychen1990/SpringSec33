@@ -41,7 +41,6 @@ public class MyAccessDecisionManager  implements AccessDecisionManager {
             }
         }
         throw new AccessDeniedException("no right");
-
 	}
 
 	public boolean supports(ConfigAttribute attribute) {

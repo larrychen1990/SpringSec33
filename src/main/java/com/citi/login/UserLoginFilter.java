@@ -52,13 +52,11 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     
     public void setUsernameParameter(String usernameParameter) {
         Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
-        System.out.println(usernameParameter);
         this.usernameParameter = usernameParameter;
     }
 
     public void setPasswordParameter(String passwordParameter) {
         Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
-        System.out.println(passwordParameter);
         this.passwordParameter = passwordParameter;
     }
 }
