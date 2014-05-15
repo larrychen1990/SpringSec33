@@ -53,6 +53,7 @@
   			AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件 -->
 	<beans:bean class="org.springframework.security.authentication.event.LoggerListener"/>
 	
+	
 	<mvc:interceptors>
 		<beans:bean class="com.citi.interceptor.HelloWorldInterceptor"/>
 	</mvc:interceptors>
