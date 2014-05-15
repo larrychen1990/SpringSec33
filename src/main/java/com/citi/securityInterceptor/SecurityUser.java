@@ -1,4 +1,4 @@
-package com.lyle.securityInterceptor;
+package com.citi.securityInterceptor;
 
 import java.util.Collection;
 

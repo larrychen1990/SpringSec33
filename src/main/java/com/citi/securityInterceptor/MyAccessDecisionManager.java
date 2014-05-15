@@ -1,4 +1,5 @@
-package com.lyle.securityInterceptor;
+package com.citi.securityInterceptor;
+
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -12,14 +13,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
- * 验证方位资源对应的角色，和用户角色是否有对应关系
- * 
- * @author lyletzzzw
+ * authenticate the role mapped by the resource,and weather mapping the user role
+ * @author dc90726
  *
+ * @May 15, 2014  2:43:26 PM
  */
 public class MyAccessDecisionManager  implements AccessDecisionManager {
 
-	@Override
 	public void decide(Authentication authentication, Object object,
 			Collection<ConfigAttribute> configAttributes)
 			throws AccessDeniedException, InsufficientAuthenticationException {
@@ -28,7 +28,7 @@ public class MyAccessDecisionManager  implements AccessDecisionManager {
         }
        
 		/**
-		 * 访问资源对应的角色信息，用户是否具备
+		 * access the resource mapping role info,weather user has or not
 		 */
 		Iterator<ConfigAttribute> ite=configAttributes.iterator();
         while(ite.hasNext()){
@@ -41,15 +41,13 @@ public class MyAccessDecisionManager  implements AccessDecisionManager {
             }
         }
         throw new AccessDeniedException("no right");
-		
+
 	}
 
-	@Override
 	public boolean supports(ConfigAttribute attribute) {
 		return true;
 	}
 
-	@Override
 	public boolean supports(Class<?> clazz) {
 		return true;
 	}

@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>首页</title>
+<title>Index</title>
 </head>
 <body>
 	<h2>version:Spring Sec3 3.0</h2>
-	这是首页，欢迎您！！！
+	Welcome to index page！！！
 
 <%
 	Enumeration men = session.getAttributeNames();

@@ -1,4 +1,5 @@
-package com.lyle.securityInterceptor;
+package com.citi.securityInterceptor;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,9 +12,9 @@ import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 
 /**
- * 获取资源对应的角色信息
+ * get  the resource mapping role info
  * 
- * @author 访问资源对应的角色信息，用户是否具备
+ * @author access the resource mapping role info,weather user has or not
  *
  */
 public class MyInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
@@ -40,13 +41,12 @@ public class MyInvocationSecurityMetadataSource implements FilterInvocationSecur
 		resourceMap.put("/index.jsp", atts);
 		resourceMap.put("/login.jsp", atts);
 		resourceMap.put("/j_spring_security_check", atts);
-		
+
 	}
-	
+
 	/**
-	 * return 资源对应的可以访问的所有角色
+	 * return  the resource mapping roles that all users can access
 	 */
-	@Override
 	public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
 		if (resourceMap == null) {
 			loadMap();
@@ -55,12 +55,10 @@ public class MyInvocationSecurityMetadataSource implements FilterInvocationSecur
 		return resourceMap.get(url);
 	}
 
-	@Override
 	public Collection<ConfigAttribute> getAllConfigAttributes() {
 		return null;
 	}
 
-	@Override
 	public boolean supports(Class<?> clazz) {
 		return true;
 	}

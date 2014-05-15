@@ -1,3 +1,4 @@
-#Wed Aug 08 11:27:32 CST 2012
 eclipse.preferences.version=1
-encoding/<project>=UTF-8
+encoding//src/main/java/com/citi/securityInterceptor/MyAccessDecisionManager.java=UTF-8
+encoding//src/main/java/com/citi/securityInterceptor/MyInvocationSecurityMetadataSource.java=UTF-8
+encoding//src/main/java/com/citi/securityInterceptor/UserDetailsServiceImpl.java=UTF-8

@@ -3,19 +3,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登陆</title>
+<title>Login</title>
 </head>
 <body>
 	<h2>version:Spring Sec3 3.0</h2>
 	<form name='f' action='/SpringSec33/j_spring_security_check' method='POST'>
 		<table>
-			<tr>
-				<td>用户名:</td>
+			<tr> 
+				<td>username:</td>
 				<td><input type='text' name='userName' value=''>
 				</td>
 			</tr>
 			<tr>
-				<td>密码:</td>
+				<td>password:</td>
 				<td><input type='password' name='password' />
 				</td>
 			</tr>

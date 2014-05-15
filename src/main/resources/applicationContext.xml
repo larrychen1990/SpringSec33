@@ -12,24 +12,25 @@
 		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="myFilterSecurityInterceptor"/>
 	</http>
 	
-	<beans:bean id="userLoginFilter" class="com.lyle.login.UserLoginFilter">
+	<beans:bean id="userLoginFilter" class="com.citi.login.UserLoginFilter">
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
 	
-	<beans:bean id="myFilterSecurityInterceptor" class="com.lyle.securityInterceptor.MyFilterSecurityInterceptor">
+	<beans:bean id="myFilterSecurityInterceptor" class="com.citi.securityInterceptor.MyFilterSecurityInterceptor">
 		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 		<beans:property name="accessDecisionManager" ref="myAccessDecisionManagerBean" />
 	</beans:bean>
 
-	<beans:bean id="securityMetadataSource" class="com.lyle.securityInterceptor.MyInvocationSecurityMetadataSource" />
-	<beans:bean id="myAccessDecisionManagerBean" class="com.lyle.securityInterceptor.MyAccessDecisionManager" />
+	<beans:bean id="securityMetadataSource" class="com.citi.securityInterceptor.MyInvocationSecurityMetadataSource" />
+	<beans:bean id="myAccessDecisionManagerBean" class="com.citi.securityInterceptor.MyAccessDecisionManager" />
 
 	<beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
 		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
 	</beans:bean>	
 	
 	<!-- 认证管理器 定义ROLE_USER -->
+	<!-- auythenticationManager define the ROLE_USER -->
 	<authentication-manager alias="myAuthenticationManager">
 		<authentication-provider>
 			<user-service>

@@ -1,4 +1,4 @@
-package com.lyle.securityInterceptor;
+package com.citi.securityInterceptor;
 
 import java.io.IOException;
 
@@ -42,7 +42,6 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor
 		this.securityMetadataSource = securityMetadataSource;
 	}
 
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 
@@ -50,7 +49,6 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor
 		invoke(fi);
 	}
 
-	@Override
 	public void destroy() {
 
 	}

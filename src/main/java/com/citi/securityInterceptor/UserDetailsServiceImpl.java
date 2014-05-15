@@ -1,4 +1,5 @@
-package com.lyle.securityInterceptor;
+package com.citi.securityInterceptor;
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,8 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 获取用户信息，通过用户名获取用户的权限信息
- * !!!注意本例中并未用到该对用户的认证信息，直接写在applicationContext.xml中
+ * 
+ * get user's  info,get the user's info by username
+ * !!!pls be notoced that there is no autacation user info,we just write it in applicationContext.xml
  * 
  * @author lyletzzzw
  */
@@ -21,7 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDetailsServiceImpl implements UserDetailsService {
  
 	/**
-	 * 获取用户Details信息的回调函数.
+	 * 
+	 * callback function to get user's Details
 	 * 
 	 * @author lyletzzzw
 	 */
@@ -30,13 +33,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		Set<GrantedAuthority> grantedAuths = new HashSet<GrantedAuthority>();
 		grantedAuths.add(new GrantedAuthorityImpl("ROLE_TestUser"));
 
-		
-		//-- mini-web示例中无以下属性, 暂时全部设为true. --//
+
+		//-- no props in mini -web,we just set them to true
 		boolean enabled = true;
 		boolean accountNonExpired = true;
 		boolean credentialsNonExpired = true;
 		boolean accountNonLocked = true;
-		
+
 		String userId= "userID";
 		String userName = "user";
 		String authenticator="user";
