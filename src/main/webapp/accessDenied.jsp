@@ -8,8 +8,7 @@
 <title>Index</title>
 </head>
 <body>
-	<h2>version:Spring Sec3 3.0</h2>
-	<h3>Welcome to index page！！！</h3>
+	<h1>Sorry Sir/Miss.You donn't have the access permission,pls check your account!</h1>
 
 <%
 	Enumeration men = session.getAttributeNames();

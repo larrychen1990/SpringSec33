@@ -4,10 +4,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
-                      
+    <!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
+	<!-- <http pattern="/**/*.jpg" security="none" />   -->     
     <http pattern="/login.jsp*" security="none" />  
-	<http auto-config="false" entry-point-ref="myAuthenticationEntryPoint">
-		<intercept-url pattern="/**" access="ROLE_TestUser"/>
+	<http auto-config="false" entry-point-ref="myAuthenticationEntryPoint" access-denied-page="accessDenied.jsp">
+		<intercept-url pattern="/**" access="ROLE_USER"/>
 		<custom-filter position="FORM_LOGIN_FILTER" ref="userLoginFilter"/>
 		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="myFilterSecurityInterceptor"/>
 	</http>
@@ -18,24 +19,24 @@
 	
 	<beans:bean id="myFilterSecurityInterceptor" class="com.citi.securityInterceptor.MyFilterSecurityInterceptor">
 		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
-		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 		<beans:property name="accessDecisionManager" ref="myAccessDecisionManagerBean" />
+		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
 
 	<beans:bean id="securityMetadataSource" class="com.citi.securityInterceptor.MyInvocationSecurityMetadataSource" />
 	<beans:bean id="myAccessDecisionManagerBean" class="com.citi.securityInterceptor.MyAccessDecisionManager" />
-
-	<beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
-	</beans:bean>	
 	
 	<!-- 认证管理器 定义ROLE_USER -->
-	<!-- auythenticationManager define the ROLE_USER -->
+	<!-- auythenticationManager definition define the ROLE_USER -->
 	<authentication-manager alias="myAuthenticationManager">
 		<authentication-provider>
 			<user-service>
-				<user name="user" password="user" authorities="ROLE_TestUser"/>
+				<user name="user" password="user" authorities="ROLE_USER"/>
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
+	
+	<beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
+	</beans:bean>	
 </beans:beans>

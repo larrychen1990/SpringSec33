@@ -36,7 +36,7 @@ public class MyInvocationSecurityMetadataSource implements FilterInvocationSecur
 	private void loadMap() {
 		resourceMap = new HashMap<String, Collection<ConfigAttribute>>();
 		Collection<ConfigAttribute> atts = new ArrayList<ConfigAttribute>();  
-		ConfigAttribute ca = new SecurityConfig("ROLE_TestUser");  
+		ConfigAttribute ca = new SecurityConfig("ROLE_USER");  
 		atts.add(ca);
 		resourceMap.put("/index.jsp", atts);
 		resourceMap.put("/login.jsp", atts);
