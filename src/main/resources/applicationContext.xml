@@ -12,6 +12,7 @@
 		<intercept-url pattern="/**" access="ROLE_USER"/>
 		<custom-filter position="FORM_LOGIN_FILTER" ref="userLoginFilter"/>
 		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="myFilterSecurityInterceptor"/>
+		<session-management invalid-session-url="/sessionTimeout.jsp"/>
 	</http>
 	
 	<beans:bean id="userLoginFilter" class="com.citi.login.UserLoginFilter">
@@ -23,7 +24,7 @@
 		<beans:property name="accessDecisionManager" ref="myAccessDecisionManagerBean" />
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
-
+	
 	<beans:bean id="securityMetadataSource" class="com.citi.securityInterceptor.MyInvocationSecurityMetadataSource" />
 	<beans:bean id="myAccessDecisionManagerBean" class="com.citi.securityInterceptor.MyAccessDecisionManager" />
 	
@@ -40,4 +41,8 @@
 	<beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
 		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
 	</beans:bean>	
+	
+	 <!--   事件监听:实现了 ApplicationListener监听接口，包括AuthenticationCredentialsNotFoundEvent 事件，
+  			AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件 -->
+	<beans:bean class="org.springframework.security.authentication.event.LoggerListener"/>
 </beans:beans>
