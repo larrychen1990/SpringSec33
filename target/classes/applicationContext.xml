@@ -7,7 +7,6 @@
     <!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
 	<!-- <http pattern="/**/*.jpg" security="none" />   -->     
     <http pattern="/login.jsp*" security="none" />  
-    <http pattern="/accessDenied.jsp*" security="none" />  
 	<http auto-config="false" entry-point-ref="myAuthenticationEntryPoint" access-denied-page="/accessDenied.jsp">
 		<intercept-url pattern="/**" access="ROLE_USER"/>
 		<custom-filter position="FORM_LOGIN_FILTER" ref="userLoginFilter"/>
