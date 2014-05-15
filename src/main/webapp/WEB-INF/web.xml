@@ -7,6 +7,10 @@
     <listener>
     	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+		<display-name>sessionListener</display-name>    	
+    	<listener-class>com.citi.listener.SessionListener</listener-class>
+    </listener>
     <session-config>
     	<session-timeout>1</session-timeout>
     </session-config>
