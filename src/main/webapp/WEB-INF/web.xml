@@ -20,14 +20,14 @@
 		<param-value>classpath*:/applicationContext.xml</param-value>
 	</context-param>
 
-    <filter>
+    <!-- <filter>
     	<filter-name>myAuthenticationProcessingFilter</filter-name>
     	<filter-class>com.citi.filter.MyAuthenticationProcessingFilter</filter-class>
     </filter>
     <filter-mapping>
       <filter-name>myAuthenticationProcessingFilter</filter-name>
       <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping> -->
 	 <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
