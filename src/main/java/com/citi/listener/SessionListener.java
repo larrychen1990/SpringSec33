@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import com.citi.login.UserTracker;
+
 public class SessionListener implements HttpSessionListener {
 
 
@@ -17,6 +19,8 @@ public class SessionListener implements HttpSessionListener {
 		long now = new Date().getTime();
 		long creationTime = evt.getSession().getCreationTime();
 		System.out.println("Duration:"+(now-creationTime)+"ms");
+		
+		System.out.println(UserTracker.getLogoutTime());
 	}
 
 }

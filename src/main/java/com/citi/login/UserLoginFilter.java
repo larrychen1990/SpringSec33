@@ -23,15 +23,6 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     private Log logger=LogFactory.getLog(getClass());
     		
     
-//    public Authentication onSuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response) {
-//    	Authentication au = super.attemptAuthentication(request, response);
-//    	System.out.println("Tracking starasegesd");
-//    	if (au.isAuthenticated()) {
-//    		System.out.println("Tracking start....");
-//    	}
-//		return au;
-//    }
-    
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
     		
     	logger.info(new StringBuilder("request=")
@@ -56,8 +47,14 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
 
         // Allow subclasses to set the "details" property
         setDetails(request, authRequest);
-        System.out.println(this.getAuthenticationManager().authenticate(authRequest).isAuthenticated());
-        return this.getAuthenticationManager().authenticate(authRequest);
+        		Authentication authenticate = this.getAuthenticationManager().authenticate(authRequest);
+        		
+        		if (authenticate.isAuthenticated()) {
+					System.err.println("Authenticated");
+					System.out.println(UserTracker.getLoginTime());
+				}
+        		
+        return authenticate;
     }
     
     protected String obtainPassword(HttpServletRequest request) {
