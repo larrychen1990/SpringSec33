@@ -2,8 +2,11 @@ package com.citi.securityInterceptor;
 
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.ConfigAttribute;
@@ -20,6 +23,7 @@ import org.springframework.security.core.GrantedAuthority;
  */
 public class MyAccessDecisionManager  implements AccessDecisionManager {
 
+	 private Log logger=LogFactory.getLog(getClass());
 	public void decide(Authentication authentication, Object object,
 			Collection<ConfigAttribute> configAttributes)
 			throws AccessDeniedException, InsufficientAuthenticationException {
@@ -36,6 +40,7 @@ public class MyAccessDecisionManager  implements AccessDecisionManager {
             String needRole=((SecurityConfig)ca).getAttribute();
             for(GrantedAuthority ga:authentication.getAuthorities()){
                 if(needRole.equals(ga.getAuthority())){  //ga is user's role.
+                logger.info(String.format("done.%s logined at %s", needRole,new Date()));
                     return;
                 }
             }
