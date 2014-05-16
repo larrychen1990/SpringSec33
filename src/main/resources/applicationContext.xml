@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans 
-    xmlns="http://www.springframework.org/schema/beans"
-	xmlns:security="http://www.springframework.org/schema/security"
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
     
@@ -23,18 +22,18 @@
 		<session-management invalid-session-url="/sessionTimeout.jsp"/>
 	</http>
 	
-	<bean id="userLoginFilter" class="com.citi.login.UserLoginFilter">
-		<property name="authenticationManager" ref="myAuthenticationManager" />
-	</bean>
+	<beans:bean id="userLoginFilter" class="com.citi.login.UserLoginFilter">
+		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
+	</beans:bean>
 	
-	<bean id="myFilterSecurityInterceptor" class="com.citi.securityInterceptor.MyFilterSecurityInterceptor">
-		<property name="securityMetadataSource" ref="securityMetadataSource" />
-		<property name="accessDecisionManager" ref="myAccessDecisionManagerBean" />
-		<property name="authenticationManager" ref="myAuthenticationManager" />
-	</bean>
+	<beans:bean id="myFilterSecurityInterceptor" class="com.citi.securityInterceptor.MyFilterSecurityInterceptor">
+		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
+		<beans:property name="accessDecisionManager" ref="myAccessDecisionManagerBean" />
+		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
+	</beans:bean>
 	
-	<bean id="securityMetadataSource" class="com.citi.securityInterceptor.MyInvocationSecurityMetadataSource" />
-	<bean id="myAccessDecisionManagerBean" class="com.citi.securityInterceptor.MyAccessDecisionManager" />
+	<beans:bean id="securityMetadataSource" class="com.citi.securityInterceptor.MyInvocationSecurityMetadataSource" />
+	<beans:bean id="myAccessDecisionManagerBean" class="com.citi.securityInterceptor.MyAccessDecisionManager" />
 	
 	<!-- 认证管理器 定义ROLE_USER -->
 	<!-- auythenticationManager definition define the ROLE_USER -->
@@ -46,17 +45,16 @@
 		</authentication-provider>
 	</authentication-manager>
 	
-	<bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-		 <property name="loginFormUrl" value="/login.jsp"></property>
-	</bean>	
+	<beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
+	</beans:bean>	
 	
 	 <!--   事件监听:实现了 ApplicationListener监听接口，包括AuthenticationCredentialsNotFoundEvent 事件，
   			AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件 -->
-	<bean class="org.springframework.security.authentication.event.LoggerListener"/>
+	<beans:bean class="org.springframework.security.authentication.event.LoggerListener"/>
 	
 	
 	<mvc:interceptors>
-		<bean class="com.citi.interceptor.MyInterceptor"/>
+		<beans:bean class="com.citi.interceptor.MyInterceptor"/>
 	</mvc:interceptors>
-	
-</beans>
+</beans:beans>
