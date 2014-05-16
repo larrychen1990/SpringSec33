@@ -15,6 +15,7 @@ public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
 			HttpServletResponse response, AuthenticationException authException)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		System.out.println("in MyAuthenticationEntryPoint");
 		
 	}
 
