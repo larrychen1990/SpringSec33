@@ -23,10 +23,11 @@ import org.springframework.security.core.GrantedAuthority;
  */
 public class MyAccessDecisionManager  implements AccessDecisionManager {
 
-	 private Log logger=LogFactory.getLog(getClass());
+	private Log logger=LogFactory.getLog(getClass());
 	public void decide(Authentication authentication, Object object,
 			Collection<ConfigAttribute> configAttributes)
 			throws AccessDeniedException, InsufficientAuthenticationException {
+		logger.info("MyAccessDecisionManager");
 		if(configAttributes == null){
             return ;
         }
@@ -40,7 +41,7 @@ public class MyAccessDecisionManager  implements AccessDecisionManager {
             String needRole=((SecurityConfig)ca).getAttribute();
             for(GrantedAuthority ga:authentication.getAuthorities()){
                 if(needRole.equals(ga.getAuthority())){  //ga is user's role.
-                logger.info(String.format("done.%s logined at %s", needRole,new Date()));
+                logger.info(String.format("Done.%s logined at %s", needRole,new Date()));
                     return;
                 }
             }
