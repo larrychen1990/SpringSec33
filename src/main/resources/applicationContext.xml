@@ -55,6 +55,7 @@
 	
 	
 	<mvc:interceptors>
-		<beans:bean class="com.citi.interceptor.HelloWorldInterceptor"/>
+		<beans:bean class="com.citi.interceptor.MyInterceptor"/>
 	</mvc:interceptors>
+	
 </beans:beans>
