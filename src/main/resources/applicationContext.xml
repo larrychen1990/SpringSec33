@@ -44,7 +44,11 @@
 		</authentication-provider>
 	</authentication-manager>
 	
-	<beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+	<!-- <beans:bean id="myAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
+	</beans:bean> -->	
+	
+	<beans:bean id="myAuthenticationEntryPoint" class="com.citi.MyAuthenticationEntryPoint">
 		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
 	</beans:bean>	
 	

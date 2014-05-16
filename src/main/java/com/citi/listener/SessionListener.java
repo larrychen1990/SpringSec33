@@ -9,7 +9,7 @@ public class SessionListener implements HttpSessionListener {
 
 
 	public void sessionCreated(HttpSessionEvent evt) {
-		System.out.println("session created");
+//		System.out.println("session created");
 	}
 
 	public void sessionDestroyed(HttpSessionEvent evt) {
