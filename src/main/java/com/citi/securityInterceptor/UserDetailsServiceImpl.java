@@ -31,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
 
 		Set<GrantedAuthority> grantedAuths = new HashSet<GrantedAuthority>();
-		grantedAuths.add(new GrantedAuthorityImpl("ROLE_TestUser"));
+		grantedAuths.add(new GrantedAuthorityImpl("ROLE_USER"));
 
 
 		//-- no props in mini -web,we just set them to true
