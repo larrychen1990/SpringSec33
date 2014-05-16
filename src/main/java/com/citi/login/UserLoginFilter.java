@@ -46,7 +46,6 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
 
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
 
-        logger.info(String.format("Credentials=%s", authRequest.getCredentials()));
         // Allow subclasses to set the "details" property
         setDetails(request, authRequest);
         logger.info(String.format("%s logined", username));
