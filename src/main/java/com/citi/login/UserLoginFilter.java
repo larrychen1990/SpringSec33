@@ -21,6 +21,7 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
+    	System.out.println("in UserLoginFilter");
         String username = obtainUsername(request);
         String password = obtainPassword(request);
 
@@ -43,19 +44,23 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     }
     
     protected String obtainPassword(HttpServletRequest request) {
+    	System.out.println("in UserLoginFilter");
         return request.getParameter(passwordParameter);
     }
     
     protected String obtainUsername(HttpServletRequest request) {
+    	System.out.println("in UserLoginFilter");
         return request.getParameter(usernameParameter);
     }
     
     public void setUsernameParameter(String usernameParameter) {
+    	System.out.println("in UserLoginFilter");
         Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
         this.usernameParameter = usernameParameter;
     }
 
     public void setPasswordParameter(String passwordParameter) {
+    	System.out.println("in UserLoginFilter");
         Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
         this.passwordParameter = passwordParameter;
     }
