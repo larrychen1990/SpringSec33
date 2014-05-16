@@ -27,11 +27,10 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     							.append("\n request=")
     							.append(request)
     							.append("\n response=")
-    							.append(response)
-    							.append("\n"));
+    							.append(response));
         String username = obtainUsername(request);
         String password = obtainPassword(request);
-        logger.info(String.format("in UserLoginFilter attemptAuthentication \n username=%s password=%s \n", username,password));
+        logger.info(String.format("in UserLoginFilter attemptAuthentication \n username=%s password=%s", username,password));
 
         if (username == null) {
             username = "";
@@ -60,18 +59,18 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     }
     
     protected String obtainUsername(HttpServletRequest request) {
-    	logger.info(String.format("in UserLoginFilter obtainUsername \n request=%s \n", request));
+    	logger.info(String.format("in UserLoginFilter obtainUsername \n request=%s", request));
         return request.getParameter(usernameParameter);
     }
     
     public void setUsernameParameter(String usernameParameter) {
-    	logger.info(String.format("in UserLoginFilter setUsernameParameter \n usernameParameter=%s \n", usernameParameter));
+    	logger.info(String.format("in UserLoginFilter setUsernameParameter \n usernameParameter=%s", usernameParameter));
         Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
         this.usernameParameter = usernameParameter;
     }
 
     public void setPasswordParameter(String passwordParameter) {
-    	logger.info(String.format("in UserLoginFilter setPasswordParameter \n passwordParameter=%s \n", passwordParameter));
+    	logger.info(String.format("in UserLoginFilter setPasswordParameter \n passwordParameter=%s", passwordParameter));
         Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
         this.passwordParameter = passwordParameter;
     }
