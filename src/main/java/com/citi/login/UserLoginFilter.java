@@ -59,26 +59,26 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
 //        return this.getAuthenticationManager().authenticate(authRequest);
 //    }
 //    
-//    protected String obtainPassword(HttpServletRequest request) {
-//    	logger.info(new StringBuilder("request=")
-//    	.append(request));
-//        return request.getParameter(passwordParameter);
-//    }
-//    
-//    protected String obtainUsername(HttpServletRequest request) {
-//    	logger.info(String.format("request=%s", request));
-//        return request.getParameter(usernameParameter);
-//    }
+    protected String obtainPassword(HttpServletRequest request) {
+    	logger.info(new StringBuilder("request=")
+    	.append(request));
+        return request.getParameter(passwordParameter);
+    }
     
-    public void setUsernameParameter(String usernameParameter) {
-    	logger.info(String.format("usernameParameter=%s", usernameParameter));
-        Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
-        this.usernameParameter = usernameParameter;
+    protected String obtainUsername(HttpServletRequest request) {
+    	logger.info(String.format("request=%s", request));
+        return request.getParameter(usernameParameter);
     }
-
-    public void setPasswordParameter(String passwordParameter) {
-    	logger.info(String.format("passwordParameter=%s", passwordParameter));
-        Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
-        this.passwordParameter = passwordParameter;
-    }
+    
+//    public void setUsernameParameter(String usernameParameter) {
+//    	logger.info(String.format("usernameParameter=%s", usernameParameter));
+//        Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
+//        this.usernameParameter = usernameParameter;
+//    }
+//
+//    public void setPasswordParameter(String passwordParameter) {
+//    	logger.info(String.format("passwordParameter=%s", passwordParameter));
+//        Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
+//        this.passwordParameter = passwordParameter;
+//    }
 }
