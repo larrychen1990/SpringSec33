@@ -48,8 +48,7 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
 
         // Allow subclasses to set the "details" property
         setDetails(request, authRequest);
-        logger.info(String.format("%s logined", username));
-
+        System.out.println(this.getAuthenticationManager().authenticate(authRequest).isAuthenticated());
         return this.getAuthenticationManager().authenticate(authRequest);
     }
     
