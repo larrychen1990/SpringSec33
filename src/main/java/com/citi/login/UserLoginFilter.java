@@ -23,11 +23,12 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     private Log logger=LogFactory.getLog(getClass());
     		
     
-    public void onSuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response) {
+    public Authentication onSuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response) {
     	Authentication au = super.attemptAuthentication(request, response);
     	if (au.isAuthenticated()) {
     		System.out.println("Tracking start....");
     	}
+		return au;
     }
     
 //    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -58,26 +59,26 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
 //        return this.getAuthenticationManager().authenticate(authRequest);
 //    }
     
-//    protected String obtainPassword(HttpServletRequest request) {
-//    	logger.info(new StringBuilder("request=")
-//    	.append(request));
-//        return request.getParameter(passwordParameter);
-//    }
-//    
-//    protected String obtainUsername(HttpServletRequest request) {
-//    	logger.info(String.format("request=%s", request));
-//        return request.getParameter(usernameParameter);
-//    }
-//    
-//    public void setUsernameParameter(String usernameParameter) {
-//    	logger.info(String.format("usernameParameter=%s", usernameParameter));
-//        Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
-//        this.usernameParameter = usernameParameter;
-//    }
-//
-//    public void setPasswordParameter(String passwordParameter) {
-//    	logger.info(String.format("passwordParameter=%s", passwordParameter));
-//        Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
-//        this.passwordParameter = passwordParameter;
-//    }
+    protected String obtainPassword(HttpServletRequest request) {
+    	logger.info(new StringBuilder("request=")
+    	.append(request));
+        return request.getParameter(passwordParameter);
+    }
+    
+    protected String obtainUsername(HttpServletRequest request) {
+    	logger.info(String.format("request=%s", request));
+        return request.getParameter(usernameParameter);
+    }
+    
+    public void setUsernameParameter(String usernameParameter) {
+    	logger.info(String.format("usernameParameter=%s", usernameParameter));
+        Assert.hasText(usernameParameter, "Username parameter must not be empty or null");
+        this.usernameParameter = usernameParameter;
+    }
+
+    public void setPasswordParameter(String passwordParameter) {
+    	logger.info(String.format("passwordParameter=%s", passwordParameter));
+        Assert.hasText(passwordParameter, "Password parameter must not be empty or null");
+        this.passwordParameter = passwordParameter;
+    }
 }
