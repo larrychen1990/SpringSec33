@@ -19,7 +19,7 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     private String usernameParameter = SPRING_SECURITY_FORM_USERNAME_KEY;
     private String passwordParameter = SPRING_SECURITY_FORM_PASSWORD_KEY;
     
-    private Logger logger=Logger.getLogger(this.getClass());
+    private Logger logger=Logger.getLogger(UserLoginFilter.class);
     
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
     		
