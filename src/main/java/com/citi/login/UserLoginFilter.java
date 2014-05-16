@@ -3,14 +3,13 @@ package com.citi.login;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.util.Assert;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -20,7 +19,6 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     private String usernameParameter = SPRING_SECURITY_FORM_USERNAME_KEY;
     private String passwordParameter = SPRING_SECURITY_FORM_PASSWORD_KEY;
     
-//    private Logger logger=Logger.getLogger(UserLoginFilter.class);
     
     private Log logger=LogFactory.getLog(getClass());
     		
