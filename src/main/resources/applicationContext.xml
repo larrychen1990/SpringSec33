@@ -31,6 +31,7 @@
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
 	
+	
 	<beans:bean id="securityMetadataSource" class="com.citi.securityInterceptor.MyInvocationSecurityMetadataSource" />
 	<beans:bean id="myAccessDecisionManagerBean" class="com.citi.securityInterceptor.MyAccessDecisionManager" />
 	

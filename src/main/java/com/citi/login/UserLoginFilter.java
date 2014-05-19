@@ -1,5 +1,7 @@
 package com.citi.login;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -51,7 +53,8 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
         		
         		if (authenticate.isAuthenticated()) {
 					System.err.println("Authenticated");
-					System.out.println(UserTracker.getLoginTime());
+					UserTracker.setLoginTime(new Date());
+					System.out.println("LoginTime="+UserTracker.getLoginTime());
 				}
         		
         return authenticate;

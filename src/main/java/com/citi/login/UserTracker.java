@@ -6,7 +6,6 @@ public class UserTracker {
 	private static Date loginTime;
 	private static Date logoutTime;
 	
-	
 	public static Date getLoginTime() {
 		return loginTime;
 	}
@@ -19,8 +18,4 @@ public class UserTracker {
 	public static void setLogoutTime(Date logoutTime) {
 		UserTracker.logoutTime = new Date();
 	}
-	
-	
-
-
 }
