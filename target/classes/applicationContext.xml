@@ -17,7 +17,7 @@
 	<http auto-config="false" entry-point-ref="myAuthenticationEntryPoint">
 		<intercept-url pattern="/**" access="ROLE_USER"/>
 		<custom-filter position="FORM_LOGIN_FILTER" ref="userLoginFilter"/>
-		<custom-filter before="FORM_LOGIN_FILTER" ref="myFilterSecurityInterceptor"/>
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="myFilterSecurityInterceptor"/>
 		<session-management invalid-session-url="/sessionTimeout.jsp"/>
 	</http>
 	

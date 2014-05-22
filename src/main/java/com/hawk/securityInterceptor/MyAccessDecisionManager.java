@@ -24,6 +24,7 @@ import org.springframework.security.core.GrantedAuthority;
 public class MyAccessDecisionManager  implements AccessDecisionManager {
 
 	private Log logger=LogFactory.getLog(getClass());
+	
 	public void decide(Authentication authentication, Object object,
 			Collection<ConfigAttribute> configAttributes)
 			throws AccessDeniedException, InsufficientAuthenticationException {

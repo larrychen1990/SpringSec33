@@ -26,7 +26,7 @@ public class MyInterceptor implements HandlerInterceptor  {
             throws Exception {
         System.out.println("After completion handle");
         String result = "result simida";
-        response.getWriter().println(result);
+        response.getWriter().println(result.getBytes());
         System.out.println(result);
     }
 }
