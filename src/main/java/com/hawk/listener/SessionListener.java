@@ -1,11 +1,11 @@
-package com.citi.listener;
+package com.hawk.listener;
 
 import java.util.Date;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import com.citi.login.UserTracker;
+import com.hawk.login.UserTracker;
 
 public class SessionListener implements HttpSessionListener {
 

@@ -21,19 +21,19 @@
 		<session-management invalid-session-url="/sessionTimeout.jsp"/>
 	</http>
 	
-	<beans:bean id="userLoginFilter" class="com.citi.login.UserLoginFilter">
+	<beans:bean id="userLoginFilter" class="com.hawk.login.UserLoginFilter">
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
 	
-	<beans:bean id="myFilterSecurityInterceptor" class="com.citi.securityInterceptor.MyFilterSecurityInterceptor">
+	<beans:bean id="myFilterSecurityInterceptor" class="com.hawk.securityInterceptor.MyFilterSecurityInterceptor">
 		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
 		<beans:property name="accessDecisionManager" ref="myAccessDecisionManagerBean" />
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
 	
 	
-	<beans:bean id="securityMetadataSource" class="com.citi.securityInterceptor.MyInvocationSecurityMetadataSource" />
-	<beans:bean id="myAccessDecisionManagerBean" class="com.citi.securityInterceptor.MyAccessDecisionManager" />
+	<beans:bean id="securityMetadataSource" class="com.hawk.securityInterceptor.MyInvocationSecurityMetadataSource" />
+	<beans:bean id="myAccessDecisionManagerBean" class="com.hawk.securityInterceptor.MyAccessDecisionManager" />
 	
 	<!-- 认证管理器 定义ROLE_USER -->
 	<!-- auythenticationManager definition define the ROLE_USER -->
@@ -49,7 +49,7 @@
 		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
 	</beans:bean> -->	
 	
-	<beans:bean id="myAuthenticationEntryPoint" class="com.citi.MyAuthenticationEntryPoint">
+	<beans:bean id="myAuthenticationEntryPoint" class="com.hawk.MyAuthenticationEntryPoint">
 		 <beans:property name="loginFormUrl" value="/login.jsp"></beans:property>
 	</beans:bean>	
 	
@@ -59,6 +59,6 @@
 	
 	
 	<mvc:interceptors>
-		<beans:bean class="com.citi.interceptor.MyInterceptor"/>
+		<beans:bean class="com.hawk.interceptor.MyInterceptor"/>
 	</mvc:interceptors>
 </beans:beans>
