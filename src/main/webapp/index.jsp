@@ -8,7 +8,7 @@
 <title>Index</title>
 </head>
 <body>
-	<h2>version:Spring Sec3 3.0</h2>
+	<h2>version:SpringSecurityFilter</h2>
 	<h3>Welcome to index page！！！</h3>
 
 <%

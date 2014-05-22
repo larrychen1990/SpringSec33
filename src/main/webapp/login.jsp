@@ -6,8 +6,8 @@
 <title>Login</title>
 </head>
 <body>
-	<h2>version:Spring Sec3 3.0</h2>
-	<form name='f' action='/SpringSec33/j_spring_security_check' method='POST'>
+	<h2>version:SpringSecurityFilter</h2>
+	<form name='f' action='/SpringSecurityFilter/j_spring_security_check' method='POST'>
 		<table>
 			<tr> 
 				<td>username:</td>
