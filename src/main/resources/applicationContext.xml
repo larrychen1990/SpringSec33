@@ -11,6 +11,11 @@
                         http://www.springframework.org/schema/mvc 
                         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
                         ">
+                        
+	<mvc:interceptors>
+		<beans:bean class="com.hawk.interceptor.MyInterceptor"/>
+	</mvc:interceptors>
+	
     <!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
 	<!-- <http pattern="/**/*.jpg" security="none" />   -->     
     <http pattern="/login.jsp*" security="none" />  
@@ -58,7 +63,4 @@
 	<beans:bean class="org.springframework.security.authentication.event.LoggerListener"/>
 	
 	
-	<mvc:interceptors>
-		<beans:bean class="com.hawk.interceptor.MyInterceptor"/>
-	</mvc:interceptors>
 </beans:beans>
