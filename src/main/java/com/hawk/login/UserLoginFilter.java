@@ -51,9 +51,7 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
         		Authentication authenticate = this.getAuthenticationManager().authenticate(authRequest);
         		
         		if (authenticate.isAuthenticated()) {
-					System.err.println("Authenticated");
-					UserTracker.setLoginTime(new Date());
-					System.out.println("LoginTime="+UserTracker.getLoginTime());
+					logger.error("Authenticated");
 				}
         		
         return authenticate;
