@@ -33,9 +33,13 @@ public class UserLoggerTrackerListener extends LoggerListener{
 				builder.append("; exception: ");
 				builder.append(((AbstractAuthenticationFailureEvent) event)
 						.getException().getMessage());
+				logger.warn("authenticate failure!");
+			}
+			if (event instanceof InteractiveAuthenticationSuccessEvent) {
+				logger.warn("authenticate success!");
+				
 			}
 			logger.warn(builder.toString());
-			logger.warn("heelelooo");
 		}
 	}
 
