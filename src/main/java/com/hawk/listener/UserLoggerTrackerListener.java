@@ -7,9 +7,10 @@ import org.springframework.security.authentication.event.AbstractAuthenticationF
 import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
 import org.springframework.security.authentication.event.LoggerListener;
 
-public class UserLoggerTrackerListener extends LoggerListener{
+public class UserLoggerTrackerListener extends LoggerListener {
 
-	private static final Log logger = LogFactory.getLog(UserLoggerTrackerListener.class);
+	private static final Log logger = LogFactory
+			.getLog(UserLoggerTrackerListener.class);
 	private boolean logInteractiveAuthenticationSuccessEvents;
 
 	public UserLoggerTrackerListener() {
@@ -19,12 +20,12 @@ public class UserLoggerTrackerListener extends LoggerListener{
 	public void onApplicationEvent(AbstractAuthenticationEvent event) {
 		if (!logInteractiveAuthenticationSuccessEvents)
 			return;
-		
+
 		if (logger.isWarnEnabled()) {
 			if (event instanceof AbstractAuthenticationFailureEvent) {
 				logger.warn("authenticate failure!");
 			}
-			
+
 			if (event instanceof InteractiveAuthenticationSuccessEvent) {
 				logger.warn("authenticate success!");
 			}
@@ -39,5 +40,4 @@ public class UserLoggerTrackerListener extends LoggerListener{
 			boolean logInteractiveAuthenticationSuccessEvents) {
 		this.logInteractiveAuthenticationSuccessEvents = logInteractiveAuthenticationSuccessEvents;
 	}
-
 }
