@@ -2,14 +2,13 @@ package com.hawk.listener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AbstractAuthenticationEvent;
 import org.springframework.security.authentication.event.AbstractAuthenticationFailureEvent;
 import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
+import org.springframework.security.authentication.event.LoggerListener;
 import org.springframework.util.ClassUtils;
 
-public class UserLoggerTrackerListener implements ApplicationListener{
+public class UserLoggerTrackerListener extends LoggerListener{
 
 	private static final Log logger = LogFactory.getLog(UserLoggerTrackerListener.class);
 	private boolean logInteractiveAuthenticationSuccessEvents;
@@ -47,11 +46,6 @@ public class UserLoggerTrackerListener implements ApplicationListener{
 	public void setLogInteractiveAuthenticationSuccessEvents(
 			boolean logInteractiveAuthenticationSuccessEvents) {
 		this.logInteractiveAuthenticationSuccessEvents = logInteractiveAuthenticationSuccessEvents;
-	}
-
-	public void onApplicationEvent(ApplicationEvent x0) {
-		onApplicationEvent( x0);
-		
 	}
 
 }
