@@ -29,6 +29,7 @@
 	<beans:bean id="userLoginFilter" class="com.hawk.login.UserLoginFilter">
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
+	
 	<beans:bean id="MyInterceptor" class="com.hawk.interceptor.MyInterceptor"/>
 	
 	<beans:bean id="myFilterSecurityInterceptor" class="com.hawk.securityInterceptor.MyFilterSecurityInterceptor">
@@ -65,6 +66,6 @@
 	<beans:bean class="com.hawk.listener.UserLoggerTrackerListener"/>
 	
 	<mvc:interceptors>
-		<beans:bean id="MyInterceptor" class="com.hawk.interceptor.MyInterceptor"/>
+		<beans:bean class="com.hawk.interceptor.MyInterceptor"/>
 	</mvc:interceptors>
 </beans:beans>
