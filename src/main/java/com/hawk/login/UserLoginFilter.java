@@ -26,7 +26,11 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     		
     
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-    		
+    	logger.debug("debug");	
+    	logger.error("debug");	
+    	logger.fatal("debug");	
+    	logger.trace("debug");	
+    	
     	logger.info(new StringBuilder("request=")
     							.append(request)
     							.append("\n response=")
