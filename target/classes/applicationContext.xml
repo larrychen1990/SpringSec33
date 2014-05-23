@@ -32,6 +32,7 @@
 	<beans:bean id="userLoginFilter" class="com.hawk.login.UserLoginFilter">
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
+	<beans:bean id="MyInterceptor" class="com.hawk.interceptor.MyInterceptor"/>
 	
 	<beans:bean id="myFilterSecurityInterceptor" class="com.hawk.securityInterceptor.MyFilterSecurityInterceptor">
 		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
