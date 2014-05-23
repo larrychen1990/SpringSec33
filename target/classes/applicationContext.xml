@@ -22,12 +22,15 @@
 		<intercept-url pattern="/**" access="ROLE_USER"/>
 		<custom-filter position="FORM_LOGIN_FILTER" ref="userLoginFilter"/>
 		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="myFilterSecurityInterceptor"/>
+		<custom-filter after="FILTER_SECURITY_INTERCEPTOR" ref="MyInterceptor"/>
 		<session-management invalid-session-url="/sessionTimeout.jsp"/>
 	</http>
 	
 	<beans:bean id="userLoginFilter" class="com.hawk.login.UserLoginFilter">
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 	</beans:bean>
+	
+	<beans:bean id="MyInterceptor" class="com.hawk.interceptor.MyInterceptor"/>
 	
 	<beans:bean id="myFilterSecurityInterceptor" class="com.hawk.securityInterceptor.MyFilterSecurityInterceptor">
 		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
