@@ -12,9 +12,6 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
                         ">
                         
-	<!-- <mvc:interceptors>
-		<beans:bean id="MyInterceptor" class="com.hawk.interceptor.MyInterceptor"/>
-	</mvc:interceptors> -->
 	
 	
 	
@@ -66,4 +63,8 @@
   			AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件 -->
 	<!-- <beans:bean class="org.springframework.security.authentication.event.LoggerListener"/> -->
 	<beans:bean class="com.hawk.listener.UserLoggerTrackerListener"/>
+	
+	<mvc:interceptors>
+		<beans:bean id="MyInterceptor" class="com.hawk.interceptor.MyInterceptor"/>
+	</mvc:interceptors>
 </beans:beans>

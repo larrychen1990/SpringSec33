@@ -1,7 +1,5 @@
 package com.hawk.login;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -58,13 +56,13 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     }
     
     protected String obtainPassword(HttpServletRequest request) {
-    	logger.info(new StringBuilder("request=")
-    	.append(request));
+//    	logger.info(new StringBuilder("request=")
+//    	.append(request));
         return request.getParameter(passwordParameter);
     }
     
     protected String obtainUsername(HttpServletRequest request) {
-    	logger.info(String.format("request=%s", request));
+//    	logger.info(String.format("request=%s", request));
         return request.getParameter(usernameParameter);
     }
     
