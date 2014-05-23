@@ -26,11 +26,6 @@ public class UserLoginFilter extends UsernamePasswordAuthenticationFilter {
     		
     
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-    	logger.debug(String.format("<blue>%s</blue>","debug"));	
-    	logger.error(String.format("<blue>%s</blue>","error"));	
-    	logger.fatal(String.format("<blue>%s</blue>","fatal"));	
-    	logger.trace(String.format("<blue>%s</blue>","trace"));	
-    	
     	logger.info(new StringBuilder("request=")
     							.append(request)
     							.append("\n response=")

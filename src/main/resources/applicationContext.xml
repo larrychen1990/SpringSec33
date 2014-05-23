@@ -16,6 +16,8 @@
 		<beans:bean class="com.hawk.interceptor.MyInterceptor"/>
 	</mvc:interceptors>
 	
+	
+	
     <!-- 不要过滤图片等静态资源，其中**代表可以跨越目录，*不可以跨越目录。 -->
 	<!-- <http pattern="/**/*.jpg" security="none" />   -->     
     <http pattern="/login.jsp*" security="none" />  
@@ -60,7 +62,6 @@
 	
 	 <!--   事件监听:实现了 ApplicationListener监听接口，包括AuthenticationCredentialsNotFoundEvent 事件，
   			AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件 -->
-	<beans:bean class="org.springframework.security.authentication.event.LoggerListener"/>
-	
-	
+	<!-- <beans:bean class="org.springframework.security.authentication.event.LoggerListener"/> -->
+	<beans:bean class="com.hawk.listener.UserLoggerTrackerListener"/>
 </beans:beans>
