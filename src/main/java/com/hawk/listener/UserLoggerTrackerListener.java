@@ -50,7 +50,8 @@ public class UserLoggerTrackerListener implements ApplicationListener{
 	}
 
 	public void onApplicationEvent(ApplicationEvent x0) {
-		onApplicationEvent((AbstractAuthenticationEvent) x0);
+		onApplicationEvent( x0);
+		
 	}
 
 }
